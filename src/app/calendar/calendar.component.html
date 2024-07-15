@@ -1,0 +1,11 @@
+<div *ngFor="let day of days" class="day">
+    <div>{{ day.date | date }}</div>
+    <div cdkDropList (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let appointment of day.appointments; let i = index" cdkDrag>
+        <div>{{ appointment.title }}</div>
+        <button (click)="deleteAppointment(day, i)">Delete</button>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" (click)="openAddAppointmentDialog()">Add Appointment</button>
+  

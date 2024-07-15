@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -9,16 +9,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { CalendarComponent } from './calendar.component';
+import { AppointmentFormComponent } from '../appointment-form/appointment-form.component';
+
+const routes: Routes = [
+  { path: '', component: CalendarComponent }
+];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [CalendarComponent, AppointmentFormComponent],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -26,10 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    DragDropModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    DragDropModule
+  ]
 })
-export class AppModule { }
+export class CalendarModule { }

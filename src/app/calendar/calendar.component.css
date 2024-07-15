@@ -1,0 +1,14 @@
+.day {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .day div {
+    margin-bottom: 5px;
+  }
+  
+  button {
+    margin-top: 5px;
+  }
+  
